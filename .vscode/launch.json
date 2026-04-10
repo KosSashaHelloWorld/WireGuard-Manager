@@ -1,0 +1,116 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug Create Interface",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/wgm",
+            "args": ["--command", "create", "--interface", "TestInterface", "-vd"],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "Debug Add Peer",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/wgm",
+            "args": ["--command", "add", "--interface", "TestInterface", "--peer", "TestPeer", "-vd"],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "Debug List Interface",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/wgm",
+            "args": ["--command", "list-interfaces", "-vd"],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "Debug List Peers",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/wgm",
+            "args": ["--command", "list-peers", "--interface", "TestInterface", "-vd"],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "Debug Remove Peer",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/wgm",
+            "args": ["--command", "remove-peer", "--interface", "TestInterface", "--peer", "TestPeer", "-vd"],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "Debug Remove Interface",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/wgm",
+            "args": ["--command", "remove-interface", "--interface", "TestInterface", "-vd"],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        }
+    ]
+}
