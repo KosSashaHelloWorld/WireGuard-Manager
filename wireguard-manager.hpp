@@ -39,8 +39,8 @@ typedef struct wgm_device
 } wgm_device;
 
 int wgm_del_device(void);
-std::vector<wgm_group*> wgm_list_groups(); 
-std::vector<wgm_peer*> wgm_list_peers(const char* group_name);
+std::vector<wgm_group> wgm_list_groups(); 
+std::vector<wgm_peer> wgm_list_peers(const char* group_name);
 int wgm_add_peer(const char* group_name, const char* peer_name);
 int wgm_del_peer(const char* group_name, const char* peer_name);
 std::string wgm_get_peer_config(const char* group_name, const char* peer_name);

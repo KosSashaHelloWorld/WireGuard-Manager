@@ -13,7 +13,6 @@ const char* WGM_CONFIG =            	"/etc/wireguard-manager/wireguard-manager.c
 const char* WGM_GROUPS_CONFIG = 		"/etc/wireguard-manager/groups.conf";
 const char* WGM_GROUPS_DIR = 			"/etc/wireguard-manager/groups.d/";
 const char* WGM_LOG_FILE =          	"/var/log/wireguard-manager.log";
-const char* WG_PATH_DIR =				"/etc/wireguard/";
 
 std::string wgm_group::serialize()
 {
@@ -52,13 +51,13 @@ int wgm_del_device(void)
 	return wg_del_device(WGM_DEFAULT_DEVICE_NAME);
 }
 
-std::vector<wgm_group*> wgm_list_groups() 
+std::vector<wgm_group> wgm_list_groups() 
 {
 	std::ifstream f(WGM_GROUPS_CONFIG);
-	std::vector<wgm_group*> groups;
+	std::vector<wgm_group> groups;
 	if (f.is_open())
 	{
-		wgm_group* g;
+		wgm_group g;
 		std::string line;
 		while (std::getline(f, line))
 		{
@@ -69,9 +68,9 @@ std::vector<wgm_group*> wgm_list_groups()
 	return groups;
 }
 
-std::vector<wgm_peer*> wgm_list_peers(const char *group_name) 
+std::vector<wgm_peer> wgm_list_peers(const char *group_name) 
 {
-	std::vector<wgm_peer*> peers;
+	std::vector<wgm_peer> peers;
 	std::ifstream f(std::string(WGM_GROUPS_DIR) + group_name);
 	if (f.is_open())
 	{
@@ -82,7 +81,7 @@ std::vector<wgm_peer*> wgm_list_peers(const char *group_name)
 			std::stringstream ss(line);
 			std::string key, pname;
 			ss >> p.public_key >> p.peer_name;
-			peers.push_back(&p);
+			peers.push_back(p);
 		}
 	}
 	return peers;
@@ -105,5 +104,5 @@ std::string wgm_get_peer_config(const char *group_name, const char *peer_name)
 
 int wgm_apply(void) 
 {
-	system("wg syncconf wgm0 /etc/wireguard/wgm0.conf"); // TODO: implement me
+	// TODO: implement me
 }
